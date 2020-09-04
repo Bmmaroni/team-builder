@@ -14,7 +14,7 @@ function App() {
       email: formData.email,
       role: formData.role
     }
-    setmembers([...members, newMember]);
+    setMembers([...members, newMember]);
   };
 
   return (
