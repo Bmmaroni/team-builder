@@ -5,19 +5,23 @@ import MemberForm from './components/MemberForm';
 
 function App() {
 
-  const [ members, setMembers ] = useState([
-    {
-      name: 'name',
-      email: 'email',
-      role: 'role'
+  const [ members, setMembers ] = useState([]);
+
+  const addNewMember = (formData) => {
+    const newMember = {
+      id: Date.now(),
+      name: formData.name,
+      email: formData.email,
+      role: formData.role
     }
-  ]);
+    setmembers([...members, newMember]);
+  };
 
   return (
     <div>
       <h1>Team</h1>
-      <TeamMembers />
-      <MemberForm />
+      <MemberForm addNewMember={addNewMember} />
+      <TeamMembers members={members} />
     </div>
   );
 }
