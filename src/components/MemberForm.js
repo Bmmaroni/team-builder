@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 
 const MemberForm = (props) => {
-    console.log("Props from MemberForm ", props);
+    console.log('Props from MemberForm: ', props);
 
     const [member, setMember] = useState({
         name: '',
@@ -11,6 +11,7 @@ const MemberForm = (props) => {
     });
 
     const changeHandler = (e) => {
+        console.log(e.target.value);
         setMember({
             ...member,
             [e.target.name]: e.target.value
@@ -26,13 +27,13 @@ const MemberForm = (props) => {
     return (
         <form onSubmit={submitForm}>
             <label htmlFor='Name'>Name</label>
-            <input type='text' name='Name' value={member.name} onChange={changeHandler} />
+            <input type='text' name='name' value={member.name} onChange={changeHandler} />
 
             <label htmlFor='Email'>Email</label>
-            <input type='text' name='Email' value={member.email} onChange={changeHandler} />
+            <input type='text' name='email' value={member.email} onChange={changeHandler} />
 
             <label htmlFor='Role'>Role</label>
-            <input type='text' name='Role' value={member.role} onChange={changeHandler} />
+            <input type='text' name='role' value={member.role} onChange={changeHandler} />
 
             <button type='submit'>Add New Member</button>
         </form>
